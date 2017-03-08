@@ -1,0 +1,35 @@
+<html>
+<head>
+</head>
+<body>
+<label for="txttoconvert">Insert parameter string:</label>
+<input type="text" id="txttoconvert" />
+<button id="btnconvert" onclick="convert()">Clean</button>
+<br/>
+<br/>
+<br/>
+<h2>Clean Parameters</h2>
+<div id="txtconverted"></div> 
+<script>
+var txttoconvert = document.getElementById("txttoconvert");
+txttoconvert.focus();
+var txtconverted = document.getElementById("txtconverted");
+var convert = function(){
+	var txt = txttoconvert.value;
+	txt = txt.replace(/%20/g, " ");
+	txt = txt.replace(/%2C/g, ",");
+	txt = txt.replace(/%2F/g, "/");
+	txt = txt.replace(/&/g, "<br/>");
+	txt = txt.replace(/%3A/g, ":");
+	txt = txt.replace(/%5B/g, "[");
+	txt = txt.replace(/%5D/g, "]");
+	txt = txt.replace(/%5B/g, "[");
+	txt = txt.replace(/%26/g, "&");
+	txt = txt.replace(/%7B/g, "{");
+	txt = txt.replace(/%7D/g, "}");
+
+	txtconverted.innerHTML = txt;
+}
+</script>
+</body>
+</html>
